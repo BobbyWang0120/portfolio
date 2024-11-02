@@ -2,8 +2,6 @@
 
 A minimalist, bilingual (Chinese/English) personal blog template built with vanilla JavaScript and Node.js. Perfect for personal blogs, thought collections, or portfolio sites.
 
-![Blog Preview](preview.png)
-
 ## Features
 
 - 🌐 Bilingual support (Chinese/English) with easy language switching
