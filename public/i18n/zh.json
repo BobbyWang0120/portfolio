@@ -1,12 +1,29 @@
 {
     "site": {
-        "title": "我的个人博客",
+        "title": "Bobby Wang的博客",
         "description": "分享想法与见解的个人空间"
     },
     "nav": {
         "home": "首页",
         "posts": "文章",
         "about": "关于我"
+    },
+    "about": {
+        "greeting": "你好，我是 Bobby Wang",
+        "age": "岁",
+        "intro": "一个热爱技术与创新的年轻创业者",
+        "interests": "兴趣爱好",
+        "goals": "目标愿景",
+        "tech": "技术",
+        "fitness": "健身",
+        "entrepreneurship": "创业",
+        "techDescription": "热衷于探索前沿技术，追随 Elon Musk 的创新精神",
+        "fitnessDescription": "遵循 Jeff Cavaliere 的科学健身理念，追求身心的全面发展",
+        "entrepreneurshipDescription": "正在技术创业的道路上不断探索和学习",
+        "vision": "愿景",
+        "visionText": "致力于通过技术创新改变世界，在创业的道路上实现自我价值",
+        "contact": "联系方式",
+        "scrollForMore": "向下滚动了解更多"
     },
     "footer": {
         "copyright": "保留所有权利"

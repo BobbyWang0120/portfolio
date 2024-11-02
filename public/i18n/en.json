@@ -1,12 +1,29 @@
 {
     "site": {
-        "title": "My Personal Blog",
+        "title": "Bobby Wang's Blog",
         "description": "A personal space for sharing thoughts and insights"
     },
     "nav": {
         "home": "Home",
         "posts": "Posts",
         "about": "About"
+    },
+    "about": {
+        "greeting": "Hi, I'm Bobby Wang",
+        "age": "years old",
+        "intro": "A young entrepreneur passionate about technology and innovation",
+        "interests": "Interests",
+        "goals": "Goals",
+        "tech": "Technology",
+        "fitness": "Fitness",
+        "entrepreneurship": "Entrepreneurship",
+        "techDescription": "Passionate about exploring cutting-edge technologies, following Elon Musk's innovative spirit",
+        "fitnessDescription": "Following Jeff Cavaliere's scientific fitness philosophy for holistic development",
+        "entrepreneurshipDescription": "Continuously exploring and learning on the path of tech entrepreneurship",
+        "vision": "Vision",
+        "visionText": "Dedicated to changing the world through technological innovation while realizing self-value in entrepreneurship",
+        "contact": "Contact",
+        "scrollForMore": "Scroll down to learn more"
     },
     "footer": {
         "copyright": "All rights reserved"

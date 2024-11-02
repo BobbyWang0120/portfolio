@@ -123,16 +123,6 @@ async function getPost(id) {
     }
 }
 
-/**
- * 判断是否是静态文件请求
- * @param {string} pathname - 请求路径
- * @returns {boolean} 是否是静态文件请求
- */
-function isStaticFileRequest(pathname) {
-    const ext = path.extname(pathname);
-    return ext !== '' || pathname === '/' || pathname === '/post';
-}
-
 // 创建HTTP服务器
 const server = http.createServer(async (req, res) => {
     // 设置CORS头
@@ -167,21 +157,17 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    // 静态文件处理
-    if (isStaticFileRequest(pathname)) {
-        let filePath;
-        if (pathname === '/') {
-            filePath = path.join(__dirname, '..', 'public', 'index.html');
-        } else {
-            filePath = path.join(__dirname, '..', 'public', pathname);
-        }
-        await serveStaticFile(filePath, res);
-        return;
+    // 路由处理
+    let filePath;
+    if (pathname === '/') {
+        filePath = path.join(__dirname, '..', 'public', 'index.html');
+    } else if (pathname === '/about') {
+        filePath = path.join(__dirname, '..', 'public', 'about.html');
+    } else {
+        filePath = path.join(__dirname, '..', 'public', pathname);
     }
 
-    // 404处理
-    res.writeHead(404);
-    res.end('Not Found');
+    await serveStaticFile(filePath, res);
 });
 
 // 启动服务器

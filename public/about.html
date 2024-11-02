@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site.title">Bobby Wang's Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1 data-i18n="site.title"></h1>
+            </div>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li>
+                        <a href="/" data-i18n="nav.home"></a>
+                    </li>
+                    <li>
+                        <a href="/posts" data-i18n="nav.posts"></a>
+                    </li>
+                    <li>
+                        <a href="/about" data-i18n="nav.about"></a>
+                    </li>
+                </ul>
+                <div class="language-switch" id="languageSwitch">
+                    <!-- 语言选择器将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="greeting" data-i18n="about.greeting"></h1>
+                        <p class="age-display">
+                            <span id="age"></span>
+                            <span data-i18n="about.age"></span>
+                        </p>
+                        <p class="intro" data-i18n="about.intro"></p>
+                    </div>
+                    <div class="scroll-indicator"></div>
+                <div class="scroll-indicator">
+                    <span data-i18n="about.scrollForMore"></span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </section>
+
+            <section class="interests-section">
+                <h2 data-i18n="about.interests"></h2>
+                <div class="interests-grid">
+                    <div class="interest-card" data-category="tech">
+                        <div class="interest-icon">🚀</div>
+                        <h3 data-i18n="about.tech"></h3>
+                        <p data-i18n="about.techDescription"></p>
+                    </div>
+                    <div class="interest-card" data-category="fitness">
+                        <div class="interest-icon">💪</div>
+                        <h3 data-i18n="about.fitness"></h3>
+                        <p data-i18n="about.fitnessDescription"></p>
+                    </div>
+                    <div class="interest-card" data-category="entrepreneurship">
+                        <div class="interest-icon">🎯</div>
+                        <h3 data-i18n="about.entrepreneurship"></h3>
+                        <p data-i18n="about.entrepreneurshipDescription"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="vision-section">
+                <h2 data-i18n="about.vision"></h2>
+                <div class="vision-content">
+                    <p data-i18n="about.visionText"></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <span data-i18n="site.title"></span>. <span data-i18n="footer.copyright"></span></p>
+    </footer>
+
+    <script src="/js/i18n.js"></script>
+    <script src="/js/about.js"></script>
+</body>
+</html>
