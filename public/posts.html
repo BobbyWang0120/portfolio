@@ -28,8 +28,31 @@
 
     <main>
         <div class="max-w-6xl mx-auto px-4">
-            <div id="content" class="py-16">
-                <!-- 文章列表将通过JavaScript动态加载 -->
+            <div class="py-16">
+                <div class="mb-8 flex flex-col sm:flex-row gap-4 items-center">
+                    <div class="relative flex-1">
+                        <input type="text" 
+                               id="searchInput" 
+                               class="w-full px-4 py-2 rounded-md border border-gray-200 focus:border-gray-400 focus:outline-none text-sm"
+                               placeholder="搜索文章...">
+                    </div>
+                    <div class="relative" id="sortDropdown">
+                        <button class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 bg-white text-sm text-gray-700 hover:border-gray-400 transition-colors">
+                            <span>排序方式</span>
+                            <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-1 py-1 w-32 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50">
+                            <div class="sort-option px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer" data-sort="date-desc">最新发布</div>
+                            <div class="sort-option px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer" data-sort="date-asc">最早发布</div>
+                            <div class="sort-option px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer" data-sort="title">按标题</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content">
+                    <!-- 文章列表将通过JavaScript动态加载 -->
+                </div>
             </div>
         </div>
     </main>
