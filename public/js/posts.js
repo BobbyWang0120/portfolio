@@ -3,7 +3,7 @@
  */
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3000/api'
-    : 'https://portfolio-delta-six-56.vercel.app/api';
+    : 'https://portfolio-elevatus.vercel.app';
 
 let allPosts = [];
 let currentSort = 'date-desc';
