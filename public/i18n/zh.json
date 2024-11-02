@@ -1,0 +1,14 @@
+{
+    "site": {
+        "title": "我的个人博客",
+        "description": "分享想法与见解的个人空间"
+    },
+    "nav": {
+        "home": "首页",
+        "posts": "文章",
+        "about": "关于我"
+    },
+    "footer": {
+        "copyright": "保留所有权利"
+    }
+}

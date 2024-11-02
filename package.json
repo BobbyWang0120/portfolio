@@ -1,0 +1,29 @@
+{
+  "name": "multilingual-personal-blog",
+  "version": "1.0.0",
+  "description": "支持多语言的个人博客 / Multilingual Personal Blog",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "live-server public --port=8080 --no-browser",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "blog",
+    "personal-website",
+    "nodejs",
+    "multilingual",
+    "i18n"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.0",
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "marked": "^14.1.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "site": {
+        "title": "My Personal Blog",
+        "description": "A personal space for sharing thoughts and insights"
+    },
+    "nav": {
+        "home": "Home",
+        "posts": "Posts",
+        "about": "About"
+    },
+    "footer": {
+        "copyright": "All rights reserved"
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site.title">My Personal Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1 data-i18n="site.title"></h1>
+            </div>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li>
+                        <a href="/" data-i18n="nav.home"></a>
+                    </li>
+                    <li>
+                        <a href="/posts" data-i18n="nav.posts"></a>
+                    </li>
+                    <li>
+                        <a href="/about" data-i18n="nav.about"></a>
+                    </li>
+                </ul>
+                <div class="language-switch" id="languageSwitch">
+                    <!-- 语言选择器将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="content">
+                <!-- 文章内容将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <span data-i18n="site.title"></span>. <span data-i18n="footer.copyright"></span></p>
+    </footer>
+
+    <script src="/js/i18n.js"></script>
+    <script src="/js/post.js"></script>
+</body>
+</html>
