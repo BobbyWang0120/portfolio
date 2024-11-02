@@ -2,7 +2,7 @@
  * 全局变量定义
  */
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-    ? 'https://your-vercel-domain.vercel.app/api'
+    ? 'https://portfolio-delta-six-56.vercel.app/api'
     : 'http://localhost:3000/api';
 
 /**
