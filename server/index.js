@@ -161,8 +161,8 @@ const server = http.createServer(async (req, res) => {
     let filePath;
     if (pathname === '/') {
         filePath = path.join(__dirname, '..', 'public', 'index.html');
-    } else if (pathname === '/about') {
-        filePath = path.join(__dirname, '..', 'public', 'about.html');
+    } else if (pathname === '/posts') {
+        filePath = path.join(__dirname, '..', 'public', 'posts.html');
     } else {
         filePath = path.join(__dirname, '..', 'public', pathname);
     }

@@ -40,33 +40,39 @@ function renderPost(post) {
                 <h2 class="text-2xl font-semibold mb-4 text-gray-900">
                     ${currentLang === 'zh' ? '文章未找到' : 'Post Not Found'}
                 </h2>
-                <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">
-                    ${currentLang === 'zh' ? '返回首页' : 'Back to Home'}
+                <a href="/posts" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    ${currentLang === 'zh' ? '返回文章列表' : 'Back to Posts'}
                 </a>
             </div>
         `;
         return;
     }
 
-    const parsedContent = marked.parse(post.content[currentLang], {
+    // 配置marked选项
+    marked.setOptions({
         gfm: true,
         breaks: true,
         headerIds: true,
-        mangle: false
+        mangle: false,
+        highlight: function(code, lang) {
+            return code;
+        }
     });
 
+    const parsedContent = marked.parse(post.content[currentLang]);
+
     content.innerHTML = `
-        <article class="prose prose-lg max-w-none">
+        <article>
             <h1 class="text-4xl font-bold tracking-tight mb-4">${post.title[currentLang]}</h1>
             <div class="text-sm text-gray-600 mb-8 pb-4 border-b border-gray-200">
                 <span class="date">${new Date(post.date).toLocaleDateString()}</span>
             </div>
-            <div class="markdown-content leading-relaxed">
+            <div class="prose prose-lg max-w-none">
                 ${parsedContent}
             </div>
             <div class="mt-16 pt-8 border-t border-gray-200">
-                <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">
-                    ${currentLang === 'zh' ? '← 返回首页' : '← Back to Home'}
+                <a href="/posts" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    ${currentLang === 'zh' ? '← 返回文章列表' : '← Back to Posts'}
                 </a>
             </div>
         </article>
