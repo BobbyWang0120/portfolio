@@ -4,7 +4,8 @@
   "description": "支持多语言的个人博客 / Multilingual Personal Blog",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "build": "npm run build:css",
+  "start": "npm run build && node server/index.js",
     "server": "nodemon server/index.js",
     "client": "live-server public --port=8080 --no-browser",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run watch:css\"",
