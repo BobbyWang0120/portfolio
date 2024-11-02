@@ -1,7 +1,9 @@
 /**
  * 全局变量定义
  */
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? 'https://your-vercel-domain.vercel.app/api'
+    : 'http://localhost:3000/api';
 
 /**
  * 获取文章列表
@@ -9,7 +11,7 @@ const API_BASE_URL = 'http://localhost:3000';
  */
 async function fetchPosts() {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/posts`);
+        const response = await fetch(`${API_BASE_URL}/posts`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -27,15 +29,17 @@ function renderPosts(posts) {
     const currentLang = window.i18n.currentLang;
     
     const postsHTML = posts.map(post => `
-        <article class="mb-16 p-8 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-200">
-            <h2 class="text-2xl font-semibold tracking-tight mb-3">
-                <a href="/post.html?id=${post.id}" class="text-gray-900 hover:text-gray-600 transition-colors">${post.title[currentLang]}</a>
-            </h2>
-            <div class="text-sm text-gray-600 mb-4">
-                <span class="date">${new Date(post.date).toLocaleDateString()}</span>
-            </div>
-            <p class="text-gray-600 leading-relaxed">${post.excerpt[currentLang]}</p>
-        </article>
+        <a href="/post.html?id=${post.id}" class="block group">
+            <article class="mb-16 p-8 bg-white rounded-lg border border-gray-200 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+                <h2 class="text-2xl font-semibold tracking-tight mb-3 group-hover:text-gray-600 transition-colors">
+                    ${post.title[currentLang]}
+                </h2>
+                <div class="text-sm text-gray-600 mb-4">
+                    <span class="date">${new Date(post.date).toLocaleDateString()}</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">${post.excerpt[currentLang]}</p>
+            </article>
+        </a>
     `).join('');
     
     content.innerHTML = postsHTML;

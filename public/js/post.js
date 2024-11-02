@@ -13,8 +13,12 @@ function getPostId() {
  * @returns {Promise} 返回文章内容
  */
 async function fetchPost(id) {
+    const API_BASE_URL = process.env.NODE_ENV === 'production' 
+        ? 'https://your-vercel-domain.vercel.app/api'
+        : 'http://localhost:3000/api';
+
     try {
-        const response = await fetch(`http://localhost:3000/api/posts/${id}`);
+        const response = await fetch(`${API_BASE_URL}/posts/${id}`);
         if (!response.ok) {
             throw new Error('Post not found');
         }

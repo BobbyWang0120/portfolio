@@ -1,7 +1,10 @@
 /**
  * 全局变量定义
  */
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? 'https://your-vercel-domain.vercel.app/api'
+    : 'http://localhost:3000/api';
+
 let allPosts = [];
 let currentSort = 'date-desc';
 
@@ -11,7 +14,7 @@ let currentSort = 'date-desc';
  */
 async function fetchPosts() {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/posts`);
+        const response = await fetch(`${API_BASE_URL}/posts`);
         const data = await response.json();
         return data;
     } catch (error) {

@@ -4,11 +4,11 @@
   "description": "支持多语言的个人博客 / Multilingual Personal Blog",
   "main": "server/index.js",
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run watch:css\"",
     "build": "npm run build:css",
-  "start": "npm run build && node server/index.js",
+    "start": "node server/index.js",
     "server": "nodemon server/index.js",
     "client": "live-server public --port=8080 --no-browser",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run watch:css\"",
     "build:css": "tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css",
     "watch:css": "tailwindcss -i ./public/css/tailwind.css -o ./public/css/styles.css --watch"
   },
@@ -21,13 +21,19 @@
   ],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "marked": "^11.2.0"
+  },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.17",
     "concurrently": "^8.2.2",
-    "live-server": "^1.2.0",
+    "live-server": "^1.2.2",
     "nodemon": "^3.0.3",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
