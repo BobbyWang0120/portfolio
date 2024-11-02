@@ -47,24 +47,24 @@ class I18nManager {
         
         // 创建当前语言显示按钮
         const button = document.createElement('button');
-        button.className = 'language-select-button';
+        button.className = 'flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 bg-white text-sm text-gray-700 hover:border-gray-400 transition-colors relative';
         
         // 创建下拉菜单
         const dropdown = document.createElement('div');
-        dropdown.className = 'language-dropdown';
+        dropdown.className = 'absolute right-0 mt-1 py-1 w-24 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50';
         
         // 更新按钮和下拉菜单内容
         const updateContent = () => {
             button.innerHTML = `
                 <span>${this.getLanguageDisplayName(this.currentLang)}</span>
-                <svg class="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
-                    <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+                <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 9l-7 7-7-7" />
                 </svg>
             `;
             
             dropdown.innerHTML = this.supportedLanguages
                 .map(lang => `
-                    <div class="language-option ${lang === this.currentLang ? 'active' : ''}" 
+                    <div class="language-option px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer ${lang === this.currentLang ? 'bg-gray-50 font-medium' : ''}" 
                          data-lang="${lang}">
                         ${this.getLanguageDisplayName(lang)}
                     </div>
@@ -76,8 +76,11 @@ class I18nManager {
         // 添加点击事件处理
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            button.classList.toggle('active');
-            dropdown.classList.toggle('show');
+            button.classList.toggle('border-gray-400');
+            dropdown.classList.toggle('opacity-0');
+            dropdown.classList.toggle('invisible');
+            dropdown.classList.toggle('-translate-y-2');
+            button.querySelector('svg').classList.toggle('rotate-180');
         });
 
         // 处理选项点击
@@ -86,16 +89,18 @@ class I18nManager {
             if (option) {
                 const lang = option.dataset.lang;
                 this.setLanguage(lang);
-                button.classList.remove('active');
-                dropdown.classList.remove('show');
+                button.classList.remove('border-gray-400');
+                dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                button.querySelector('svg').classList.remove('rotate-180');
                 updateContent();
             }
         });
 
         // 点击其他地方关闭下拉菜单
         document.addEventListener('click', () => {
-            button.classList.remove('active');
-            dropdown.classList.remove('show');
+            button.classList.remove('border-gray-400');
+            dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+            button.querySelector('svg').classList.remove('rotate-180');
         });
 
         // 监听语言变化
@@ -104,6 +109,7 @@ class I18nManager {
         });
 
         // 添加到容器
+        container.className = 'relative';
         container.appendChild(button);
         container.appendChild(dropdown);
     }

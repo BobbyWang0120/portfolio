@@ -36,15 +36,18 @@ function renderPost(post) {
     
     if (!post) {
         content.innerHTML = `
-            <div class="error-message">
-                <h2>${currentLang === 'zh' ? '文章未找到' : 'Post Not Found'}</h2>
-                <a href="/">${currentLang === 'zh' ? '返回首页' : 'Back to Home'}</a>
+            <div class="text-center py-16">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-900">
+                    ${currentLang === 'zh' ? '文章未找到' : 'Post Not Found'}
+                </h2>
+                <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">
+                    ${currentLang === 'zh' ? '返回首页' : 'Back to Home'}
+                </a>
             </div>
         `;
         return;
     }
 
-    // 使用marked解析Markdown内容
     const parsedContent = marked.parse(post.content[currentLang], {
         gfm: true,
         breaks: true,
@@ -53,16 +56,16 @@ function renderPost(post) {
     });
 
     content.innerHTML = `
-        <article class="post-full">
-            <h1>${post.title[currentLang]}</h1>
-            <div class="post-meta">
+        <article class="prose prose-lg max-w-none">
+            <h1 class="text-4xl font-bold tracking-tight mb-4">${post.title[currentLang]}</h1>
+            <div class="text-sm text-gray-600 mb-8 pb-4 border-b border-gray-200">
                 <span class="date">${new Date(post.date).toLocaleDateString()}</span>
             </div>
-            <div class="post-content markdown-body">
+            <div class="markdown-content leading-relaxed">
                 ${parsedContent}
             </div>
-            <div class="post-navigation">
-                <a href="/" class="back-link">
+            <div class="mt-16 pt-8 border-t border-gray-200">
+                <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">
                     ${currentLang === 'zh' ? '← 返回首页' : '← Back to Home'}
                 </a>
             </div>
@@ -79,13 +82,6 @@ window.addEventListener('languageChanged', async () => {
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', async () => {
-    // 初始化marked
-    marked.setOptions({
-        highlight: function(code, lang) {
-            return code;
-        }
-    });
-
     const postId = getPostId();
     const post = await fetchPost(postId);
     renderPost(post);

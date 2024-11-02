@@ -27,14 +27,14 @@ function renderPosts(posts) {
     const currentLang = window.i18n.currentLang;
     
     const postsHTML = posts.map(post => `
-        <article class="post-preview">
-            <h2>
-                <a href="/post.html?id=${post.id}">${post.title[currentLang]}</a>
+        <article class="mb-16 p-8 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-200">
+            <h2 class="text-2xl font-semibold tracking-tight mb-3">
+                <a href="/post.html?id=${post.id}" class="text-gray-900 hover:text-gray-600 transition-colors">${post.title[currentLang]}</a>
             </h2>
-            <div class="post-meta">
+            <div class="text-sm text-gray-600 mb-4">
                 <span class="date">${new Date(post.date).toLocaleDateString()}</span>
             </div>
-            <p>${post.excerpt[currentLang]}</p>
+            <p class="text-gray-600 leading-relaxed">${post.excerpt[currentLang]}</p>
         </article>
     `).join('');
     

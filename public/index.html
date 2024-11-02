@@ -1,49 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="site.title">My Personal Blog</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title data-i18n="site.title">Bobby Wang's Blog</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav>
+<body class="antialiased text-gray-900 bg-white">
+    <header class="sticky top-0 bg-white/98 backdrop-blur border-b border-gray-200/10 z-50">
+        <nav class="h-16 max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div class="logo">
-                <h1 data-i18n="site.title"></h1>
+                <h1 class="text-xl font-semibold tracking-tight" data-i18n="site.title"></h1>
             </div>
-            <div class="nav-content">
-                <ul class="nav-links">
+            <div class="flex items-center gap-6">
+                <ul class="flex gap-6">
                     <li>
-                        <a href="/" data-i18n="nav.home"></a>
+                        <a href="/" class="nav-link" data-i18n="nav.home"></a>
                     </li>
                     <li>
-                        <a href="/posts" data-i18n="nav.posts"></a>
+                        <a href="/posts" class="nav-link" data-i18n="nav.posts"></a>
                     </li>
                     <li>
-                        <a href="/about" data-i18n="nav.about"></a>
+                        <a href="/about" class="nav-link" data-i18n="nav.about"></a>
                     </li>
                 </ul>
-                <div class="language-switch" id="languageSwitch">
-                    <!-- 语言选择器将通过JavaScript动态生成 -->
-                </div>
+                <div id="languageSwitch"></div>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="container">
-            <div id="content">
+        <div class="max-w-6xl mx-auto px-4">
+            <div id="content" class="py-16">
                 <!-- 内容区域将通过JavaScript动态加载 -->
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer class="h-20 flex items-center justify-center text-center text-gray-600 text-sm border-t border-gray-200">
         <p>&copy; 2024 <span data-i18n="site.title"></span>. <span data-i18n="footer.copyright"></span></p>
     </footer>
 
-    <script src="js/i18n.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
