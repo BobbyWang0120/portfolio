@@ -1,9 +1,9 @@
 /**
  * 全局变量定义
  */
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-    ? 'https://portfolio-delta-six-56.vercel.app/api'
-    : 'http://localhost:3000/api';
+const API_BASE_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000/api'
+    : 'https://portfolio-delta-six-56.vercel.app/api';
 
 let allPosts = [];
 let currentSort = 'date-desc';

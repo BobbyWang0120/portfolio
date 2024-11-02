@@ -13,9 +13,9 @@ function getPostId() {
  * @returns {Promise} 返回文章内容
  */
 async function fetchPost(id) {
-    const API_BASE_URL = process.env.NODE_ENV === 'production' 
-        ? 'https://portfolio-delta-six-56.vercel.app/api'
-        : 'http://localhost:3000/api';
+    const API_BASE_URL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000/api'
+        : 'https://portfolio-delta-six-56.vercel.app/api';
 
     try {
         const response = await fetch(`${API_BASE_URL}/posts/${id}`);
